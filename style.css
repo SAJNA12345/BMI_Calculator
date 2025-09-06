@@ -1,0 +1,215 @@
+/* Import Google font "Jost" with weights 400, 500, 600 */
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap");
+
+/* Define color variables for BMI categories */
+:root {
+  --underweight: orange;
+  --normal: green;
+  --overweight: lightcoral;
+  --obese: crimson;
+}
+
+/* Reset and global styles for all elements */
+* {
+  box-sizing: border-box;  /* Include padding and border in element size */
+  padding: 0;
+  margin: 0;
+  font-family: "Jost", sans-serif; /* Apply chosen font */
+}
+
+/* Body styles */
+body {
+  background: #004d4d;       /* Dark teal background */
+  display: flex;             /* Flexbox layout */
+  align-items: center;       /* Center horizontally */
+  flex-direction: column;    /* Stack elements vertically */
+  min-height: 100vh;         /* Full viewport height */
+}
+
+/* Title styling */
+h1 {
+  text-align: center;
+}
+
+/* Container box for BMI calculator */
+.container {
+  margin-block: 1.5rem;  /* Top and bottom margin */
+  width: min(480px, 90%); /* Responsive width: max 480px or 90% of screen */
+  background: #fff;       /* White background */
+  padding: 1.5rem;        /* Inside spacing */
+  border-radius: 10px;    /* Rounded corners */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25); /* Soft shadow */
+  display: grid;          /* Grid layout */
+  gap: 1rem;              /* Space between items */
+}
+
+/* Calculator form layout */
+.calculator {
+  display: flex;
+  flex-direction: column; /* Stack form items vertically */
+}
+
+/* Add spacing between form items except last one */
+.calculator > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+/* Each form row (label + input) */
+.calculator div {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between label and input */
+}
+
+/* Label styling */
+.calculator label {
+  flex: 0 0 120px; /* Fixed width for labels */
+  font-weight: 600;
+}
+
+/* Input field styling */
+.calculator input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  outline-color: #555; /* Outline when focused */
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+/* Button styling */
+.calculator button {
+  width: 50%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  background: #00a1a3;   /* Teal button */
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;      /* Smooth hover effect */
+  font-size: 0.875rem;
+}
+
+/* Special style for reset button */
+.calculator button[type="reset"] {
+  background: #444; /* Dark gray */
+}
+
+/* Hover effect for buttons */
+.calculator button:hover {
+  filter: brightness(120%);
+}
+
+/* Output text styling */
+.output {
+  text-align: center;
+}
+
+/* Large font for BMI result */
+.output #bmi {
+  font-size: 4rem;
+}
+
+/* Make description uppercase */
+.output #desc strong {
+  text-transform: uppercase;
+}
+
+/* BMI scale container (colored boxes) */
+.bmi-scale {
+  display: flex;
+}
+
+/* Each BMI category box */
+.bmi-scale div {
+  flex: 1; /* Equal space for each */
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 5px solid var(--color); /* Uses custom color */
+  padding: 10px;
+}
+
+/* Small text for BMI category titles */
+.bmi-scale h4 {
+  font-size: 0.75rem;
+  color: slategray;
+}
+
+/* Responsive styles for small screens (≤ 480px) */
+@media (max-width: 480px) {
+  .bmi-scale {
+    flex-direction: column; /* Stack categories vertically */
+  }
+
+  .bmi-scale div {
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-left: 5px solid var(--color); /* Side color bar instead of top */
+  }
+
+  /* Add bottom border to last category */
+  .bmi-scale div:last-child {
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Adjust category title width */
+  .bmi-scale h4 {
+    width: 120px;
+    text-align: start;
+  }
+
+  /* Adjust category range text */
+  .bmi-scale p {
+    font-size: 0.875rem;
+    margin-left: auto;
+  }
+}
+
+/* Text colors for different BMI results */
+.underweight {
+  color: var(--underweight);
+}
+
+.healthy {
+  color: var(--normal);
+}
+
+.overweight {
+  color: var(--overweight);
+}
+
+.obese {
+  color: var(--obese);
+}
+/* Tips box under the BMI result */
+.tips {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #f7f7f8;
+  border-left: 4px solid currentColor;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.tips h4 {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.tips ul {
+  padding-left: 1rem;
+  margin: 0.25rem 0 0;
+}
+
+.tips li {
+  margin: 0.25rem 0;
+}
+
